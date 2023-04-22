@@ -34,16 +34,15 @@ class Vampire {
   }
 
   // Returns true if this vampire is more senior than the other vampire. (Who is closer to the original vampire)
-  // isMoreSeniorThan(vampire) {
-  //   const seniority = this.numberOfGenerations;
-  //   const secondVampSeniority = vampire.numberOfGenerations;
-  //   console.log(seniority, secondVampSeniority)
+  isMoreSeniorThan(vampire) {
+    const seniority = this.numberOfVampiresFromOriginal;
+    const secondVampSeniority = vampire.numberOfVampiresFromOriginal;
 
-  //   if (seniority > secondVampSeniority) {
-  //     return false;
-  //   }
-  //   return true;
-  // }
+    if (seniority > secondVampSeniority) {
+      return false;
+    }
+    return true;
+  }
 
   /** Stretch **/
 

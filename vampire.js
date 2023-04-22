@@ -51,8 +51,40 @@ class Vampire {
   // For example:
   // * when comparing Ansel and Sarah, Ansel is the closest common anscestor.
   // * when comparing Ansel and Andrew, Ansel is the closest common anscestor.
-  closestCommonAncestor(vampire) {
 
+  closestCommonAncestor(vampire) {
+    //Set thisVamp to vampire object that method is called on
+    let thisVamp = this;
+    
+    //Intro two separate arrays to store lineage of each vampire
+    const lineage1 = [];
+    const lineage2 = [];
+
+    //Push original vampire into their own lineage
+    lineage1.push(this);
+    lineage2.push(vampire);
+
+    //Push all ancestor vampires into respected lineages
+    while (vampire.creator) {
+      lineage2.push(vampire.creator);
+      vampire = vampire.creator;
+    }
+
+    while (thisVamp.creator) {
+      if (thisVamp.creator !== null) {
+        lineage1.push(thisVamp.creator);
+      }
+      thisVamp = thisVamp.creator;
+    }
+
+    //Nested loops to loop through each lineage array and find a matching vampire name
+    for (const vamp of lineage1) {
+      for (const vamp2 of lineage2) {
+        if (vamp.name === vamp2.name) {
+          return vamp;
+        }
+      }
+    }
   }
 }
 

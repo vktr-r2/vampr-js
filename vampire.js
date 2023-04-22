@@ -22,13 +22,28 @@ class Vampire {
 
   // Returns the number of vampires away from the original vampire this vampire is
   get numberOfVampiresFromOriginal() {
+    let numberOfGenerations = 0;
+    let currentVamp = this;
 
+    while (currentVamp.creator) {
+      currentVamp = currentVamp.creator;
+      numberOfGenerations ++;
+    }
+    
+    return numberOfGenerations;
   }
 
   // Returns true if this vampire is more senior than the other vampire. (Who is closer to the original vampire)
-  isMoreSeniorThan(vampire) {
+  // isMoreSeniorThan(vampire) {
+  //   const seniority = this.numberOfGenerations;
+  //   const secondVampSeniority = vampire.numberOfGenerations;
+  //   console.log(seniority, secondVampSeniority)
 
-  }
+  //   if (seniority > secondVampSeniority) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   /** Stretch **/
 
